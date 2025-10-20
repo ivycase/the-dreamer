@@ -21,6 +21,7 @@ public class SlotInteraction : MonoBehaviour
     public int coinReward;
     public GameObject coinParticleParent;
     public ParticleSystem butterflyParticles;
+    public AudioSource musicSource;
 
     [HeaderAttribute("Animation")]
     public float slotShakeAmplitude = 1.0f;
@@ -36,6 +37,7 @@ public class SlotInteraction : MonoBehaviour
 
     private bool isSpinning;
     private Dictionary<Transform, string> rollerSymbols = new();
+    private float musicNextPitch = 1.0f;
 
     public void Update()
     {
@@ -128,6 +130,9 @@ public class SlotInteraction : MonoBehaviour
                 break;
 
             case "music":
+                musicSource.pitch = musicNextPitch;
+                musicSource.Play();
+                musicNextPitch = Random.Range(0.75f, 1.25f);
                 break;
 
             case "gem":
