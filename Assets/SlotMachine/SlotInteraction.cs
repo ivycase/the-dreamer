@@ -12,11 +12,15 @@ public class SlotInteraction : MonoBehaviour
     public GameObject slotMachine;
     public float maxInteractDistance = 5.0f;
 
+    public float biasAmount = 0.2f;
     public string[] symbols;
     public float[] symbolRotations;
 
+    // maybe put this in an event manager !
     [HeaderAttribute("Rewards")]
     public int coinReward;
+    public GameObject coinParticleParent;
+    public ParticleSystem butterflyParticles;
 
     [HeaderAttribute("Animation")]
     public float slotShakeAmplitude = 1.0f;
@@ -48,23 +52,40 @@ public class SlotInteraction : MonoBehaviour
 
             lever.DOBlendablePunchRotation(new Vector3(0f, 0f, 60f), leverRotateDuration, 1, 0.1f);
 
-            StartCoroutine(Spin(leftRoller, rollerRotateDuration));
-            StartCoroutine(Spin(centerRoller, rollerRotateDuration + rollerSpinDelay));
-            StartCoroutine(Spin(rightRoller, rollerRotateDuration + rollerSpinDelay * 2.0f, true));
+            int biasIndex = -1;
+
+            // sometimes you get a free match to make the game go faster
+            if (Random.Range(0f, 1f) <= biasAmount)
+            {
+                Debug.Log("free match!");
+                biasIndex = Random.Range(0, symbols.Length);
+            }
+
+            StartCoroutine(Spin(leftRoller, rollerRotateDuration, biasIndex));
+            StartCoroutine(Spin(centerRoller, rollerRotateDuration + rollerSpinDelay, biasIndex));
+            StartCoroutine(Spin(rightRoller, rollerRotateDuration + rollerSpinDelay * 2.0f, biasIndex, true));
         }
     }
 
-    private IEnumerator Spin(Transform roller, float duration, bool doEvaluate = false)
+    private IEnumerator Spin(Transform roller, float duration, int biasIndex = -1, bool doEvaluate = false)
     {
-        int symbol_index = Random.Range(0, symbols.Length);
+        int symbolIndex;
+        if (biasIndex == -1)
+        {
+            symbolIndex = Random.Range(0, symbols.Length);
+        }
+        else
+        {
+            symbolIndex = biasIndex;
+        }
 
-        string target_symbol = symbols[symbol_index];
-        rollerSymbols[roller] = target_symbol;
+        string targetSymbol = symbols[symbolIndex];
+        rollerSymbols[roller] = targetSymbol;
 
-        Vector3 target_rotation = roller.transform.localRotation.eulerAngles;
-        target_rotation.z = symbolRotations[symbol_index] + 360.0f * (int) duration;
+        Vector3 targetRotation = roller.transform.localRotation.eulerAngles;
+        targetRotation.z = symbolRotations[symbolIndex] + 360.0f * (int) duration;
 
-        roller.transform.DOLocalRotate(target_rotation, duration, RotateMode.FastBeyond360);
+        roller.transform.DOLocalRotate(targetRotation, duration, RotateMode.FastBeyond360);
 
         if (!doEvaluate) yield break;
 
@@ -87,14 +108,23 @@ public class SlotInteraction : MonoBehaviour
         }
 
         Debug.Log(left + " match!");
+        coinManager.UpdateEventLabel(left);
 
         switch (left)
         {
             case "coin":
                 coinManager.AddCoins(coinReward);
+
+                coinParticleParent.SetActive(true);
+                foreach (ParticleSystem particle in coinParticleParent.GetComponentsInChildren<ParticleSystem>())
+                {
+                    particle.Play();
+                }
                 break;
 
             case "butterfly":
+                butterflyParticles.gameObject.SetActive(true);
+                butterflyParticles.Play();
                 break;
 
             case "music":
