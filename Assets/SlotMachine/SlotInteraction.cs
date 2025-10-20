@@ -22,12 +22,14 @@ public class SlotInteraction : MonoBehaviour
     public GameObject coinParticleParent;
     public ParticleSystem butterflyParticles;
     public AudioSource musicSource;
+    public GameObject diamondCardsParent;
 
     [HeaderAttribute("Animation")]
     public float slotShakeAmplitude = 1.0f;
     public float leverRotateDuration = 0.5f;
     public float rollerRotateDuration = 1.0f;
     public float rollerSpinDelay = 1.0f;
+    public float diamondsRotateDuration = 2.0f;
 
     [HeaderAttribute("Animateable")]
     public Transform lever;
@@ -135,7 +137,11 @@ public class SlotInteraction : MonoBehaviour
                 musicNextPitch = Random.Range(0.75f, 1.25f);
                 break;
 
-            case "gem":
+            case "diamonds":
+                foreach (Transform card in diamondCardsParent.GetComponentsInChildren<Transform>())
+                {
+                    card.DORotate(new Vector3(0, 0, 180), diamondsRotateDuration, RotateMode.LocalAxisAdd);
+                }
                 break;
         }
     }
