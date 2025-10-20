@@ -14,6 +14,7 @@ public class SlotInteraction : MonoBehaviour
     public float[] symbolRotations;
 
     [HeaderAttribute("Animation")]
+    public float slotShakeAmplitude = 1.0f;
     public float leverRotateDuration = 0.5f;
     public float rollerRotateDuration = 1.0f;
     public float rollerSpinDelay = 1.0f;
@@ -29,7 +30,9 @@ public class SlotInteraction : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, slotMachine.transform.position) > maxInteractDistance) return;
 
-            lever.DOPunchRotation(new Vector3(60f, 0f, 0f), leverRotateDuration, 1, 0.1f);
+            slotMachine.transform.DOShakePosition(leverRotateDuration / 2.0f, slotShakeAmplitude, 25);
+
+            lever.DOBlendablePunchRotation(new Vector3(0f, 0f, 60f), leverRotateDuration, 1, 0.1f);
 
             Spin(leftRoller, rollerRotateDuration);
             Spin(centerRoller, rollerRotateDuration + rollerSpinDelay);
