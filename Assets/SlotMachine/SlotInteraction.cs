@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class SlotInteraction : MonoBehaviour
 {
+    public RewardSystem rewardSystem;
     public CoinManager coinManager;
 
     public GameObject player;
@@ -18,20 +19,11 @@ public class SlotInteraction : MonoBehaviour
     public string[] symbols;
     public float[] symbolRotations;
 
-    // maybe put this in an event manager !
-    [HeaderAttribute("Rewards")]
-    public int coinReward;
-    public GameObject coinParticleParent;
-    public ParticleSystem butterflyParticles;
-    public List<AudioSource> musicSources;
-    public GameObject diamondCardsParent;
-
     [HeaderAttribute("Animation")]
     public float slotShakeAmplitude = 1.0f;
     public float leverRotateDuration = 0.5f;
     public float rollerRotateDuration = 1.0f;
     public float rollerSpinDelay = 1.0f;
-    public float diamondsRotateDuration = 2.0f;
 
     [HeaderAttribute("Animateable")]
     public Transform lever;
@@ -41,9 +33,6 @@ public class SlotInteraction : MonoBehaviour
 
     private bool isSpinning;
     private Dictionary<Transform, string> rollerSymbols = new();
-    private float musicNextPitch = 1.0f;
-
-    private int musicIndex = 0;
 
     public void Update()
     {
@@ -111,45 +100,10 @@ public class SlotInteraction : MonoBehaviour
 
         if (left != center || left != right || center != right)
         {
-            // no match
+            rewardSystem.ActivateReward("loss");
             return;
         }
 
-        Debug.Log(left + " match!");
-        coinManager.UpdateEventLabel(left);
-
-        switch (left)
-        {
-            case "coin":
-                coinManager.AddCoins(coinReward);
-
-                coinParticleParent.SetActive(true);
-                foreach (ParticleSystem particle in coinParticleParent.GetComponentsInChildren<ParticleSystem>())
-                {
-                    particle.Play();
-                }
-                break;
-
-            case "butterfly":
-                butterflyParticles.gameObject.SetActive(true);
-                butterflyParticles.Play();
-                break;
-
-            case "music":
-                musicSources[musicIndex].Pause();
-                musicIndex = (musicIndex + 1) % musicSources.Count;
-                AudioSource source = musicSources[musicIndex];
-                source.pitch = musicNextPitch;
-                source.Play();
-                //musicNextPitch = Random.Range(0.75f, 1.25f);
-                break;
-
-            case "diamonds":
-                foreach (Transform card in diamondCardsParent.GetComponentsInChildren<Transform>())
-                {
-                    card.DORotate(new Vector3(0, 0, 180), diamondsRotateDuration, RotateMode.LocalAxisAdd);
-                }
-                break;
-        }
+        rewardSystem.ActivateReward(left);
     }
 }
