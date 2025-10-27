@@ -1,8 +1,10 @@
 using DG.Tweening;
+using Mono.Cecil;
 using OldElevator;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SlotInteraction : MonoBehaviour
 {
@@ -21,7 +23,7 @@ public class SlotInteraction : MonoBehaviour
     public int coinReward;
     public GameObject coinParticleParent;
     public ParticleSystem butterflyParticles;
-    public AudioSource musicSource;
+    public List<AudioSource> musicSources;
     public GameObject diamondCardsParent;
 
     [HeaderAttribute("Animation")]
@@ -40,6 +42,8 @@ public class SlotInteraction : MonoBehaviour
     private bool isSpinning;
     private Dictionary<Transform, string> rollerSymbols = new();
     private float musicNextPitch = 1.0f;
+
+    private int musicIndex = 0;
 
     public void Update()
     {
@@ -87,7 +91,7 @@ public class SlotInteraction : MonoBehaviour
         rollerSymbols[roller] = targetSymbol;
 
         Vector3 targetRotation = roller.transform.localRotation.eulerAngles;
-        targetRotation.z = symbolRotations[symbolIndex] + 360.0f * (int) duration;
+        targetRotation.z = symbolRotations[symbolIndex] + 360.0f * (int)duration;
 
         roller.transform.DOLocalRotate(targetRotation, duration, RotateMode.FastBeyond360);
 
@@ -132,9 +136,12 @@ public class SlotInteraction : MonoBehaviour
                 break;
 
             case "music":
-                musicSource.pitch = musicNextPitch;
-                musicSource.Play();
-                musicNextPitch = Random.Range(0.75f, 1.25f);
+                musicSources[musicIndex].Pause();
+                musicIndex = (musicIndex + 1) % musicSources.Count;
+                AudioSource source = musicSources[musicIndex];
+                source.pitch = musicNextPitch;
+                source.Play();
+                //musicNextPitch = Random.Range(0.75f, 1.25f);
                 break;
 
             case "diamonds":
