@@ -16,7 +16,7 @@ public class CoinManager : MonoBehaviour
 
     private void UpdateCoinLabel()
     {
-        coin_label.text = "§" + totalCoins;
+        coin_label.text = "? + totalCoins";
     }
 
     // probably make a separate event manager later
