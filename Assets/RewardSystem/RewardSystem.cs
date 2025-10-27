@@ -8,6 +8,7 @@ public class RewardSystem : MonoBehaviour
     public CoinManager coinManager;
     public int coinReward;
     public GameObject coinParticleParent;
+    public GameObject r_coinParticleParent;
 
     [HeaderAttribute("Butterfly")]
     public ParticleSystem butterflyParticles;
@@ -19,7 +20,20 @@ public class RewardSystem : MonoBehaviour
     public GameObject cardsParent;
     public float cardsRotateDuration = 2.0f;
 
+    [HeaderAttribute("Balls")]
+    public GameObject regularBall;
+    public GameObject appleBall;
+    public GameObject eyeBall;
+    public GameObject skullBall;
+    public GameObject saturnBall;
+
+    public GameObject currentBall;
     private int musicIndex = 0;
+
+    public void Start()
+    {
+        currentBall = regularBall;
+    }
 
     public void ActivateReward(string reward_name)
     {
@@ -31,6 +45,8 @@ public class RewardSystem : MonoBehaviour
                 //TODO: money loss effects
                 break;
 
+
+            // ** SLOT MACHINE **
             case "coin":
                 coinManager.AddCoins(coinReward);
 
@@ -58,6 +74,48 @@ public class RewardSystem : MonoBehaviour
                 {
                     card.DORotate(new Vector3(0, 0, 180), cardsRotateDuration, RotateMode.LocalAxisAdd);
                 }
+                break;
+
+            // ** ROULETTE **
+            case "r_coin":
+                coinManager.AddCoins(coinReward);
+
+                currentBall.SetActive(false);
+                regularBall.SetActive(true);
+                currentBall = regularBall;
+
+                r_coinParticleParent.SetActive(true);
+                foreach (ParticleSystem particle in r_coinParticleParent.GetComponentsInChildren<ParticleSystem>())
+                {
+                    particle.Play();
+                }
+                break;
+
+            case "apple":
+                currentBall.SetActive(false);
+                appleBall.SetActive(true);
+                currentBall = appleBall;
+                break;
+
+            case "eye":
+                currentBall.SetActive(false);
+                eyeBall.SetActive(true);
+                currentBall = eyeBall;
+                break;
+
+            case "skull":
+                currentBall.SetActive(false);
+                skullBall.SetActive(true);
+                currentBall = skullBall;
+                break;
+
+            case "saturn":
+                currentBall.SetActive(false);
+                saturnBall.SetActive(true);
+                currentBall = saturnBall;
+                break;
+
+            case "size":
                 break;
         }
     }
