@@ -1914,6 +1914,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1070722902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &309595358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2240749362130770520, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
+  m_PrefabInstance: {fileID: 1110541182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &315603274
 GameObject:
   m_ObjectHideFlags: 0
@@ -11501,11 +11506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377792468896979131, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.331262
+      value: -11.994
       objectReference: {fileID: 0}
     - target: {fileID: 1377792468896979131, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.622
+      value: 0.392
       objectReference: {fileID: 0}
     - target: {fileID: 1377792468896979131, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11539,10 +11544,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1377792468896979131, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2190887483978995562, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1023233765}
+    - target: {fileID: 2190887483978995562, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
+      propertyPath: isEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2190887483978995562, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
       propertyPath: coinManager
       value: 
@@ -11558,6 +11571,10 @@ PrefabInstance:
     - target: {fileID: 2190887483978995562, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
       propertyPath: ballTransitionPunchAmount
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000218969295444558, guid: 5b1c87448b3616544b6aec6007243bc6, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20803,6 +20820,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2063067464}
     - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: rouletteTable
+      value: 
+      objectReference: {fileID: 309595358}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
       propertyPath: butterflyParticles
       value: 
       objectReference: {fileID: 2121222400}
@@ -20815,8 +20836,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1902613049}
     - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: tableSizes.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
       propertyPath: musicSources.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[0]'
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[1]'
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[2]'
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[3]'
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[4]'
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[5]'
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[6]'
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[7]'
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[8]'
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[9]'
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: 'tableSizes.Array.data[10]'
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
       propertyPath: 'musicSources.Array.data[0]'
@@ -21735,6 +21804,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504852883977397549, guid: ac4f6a86f43ebcc408fd48e8858ff2a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504852883977397549, guid: ac4f6a86f43ebcc408fd48e8858ff2a4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

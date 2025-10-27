@@ -27,8 +27,15 @@ public class RewardSystem : MonoBehaviour
     public GameObject skullBall;
     public GameObject saturnBall;
 
+    [HeaderAttribute("Size")]
+    public GameObject rouletteTable;
+    public float tableGrowDuration = 0.25f;
+    public float[] tableSizes;
+
     public GameObject currentBall;
     private int musicIndex = 0;
+
+    private int tableSizeIndex;
 
     public void Start()
     {
@@ -116,6 +123,11 @@ public class RewardSystem : MonoBehaviour
                 break;
 
             case "size":
+                if (tableSizeIndex >= tableSizes.Length) return;
+
+                rouletteTable.transform.DOBlendableScaleBy(Vector3.one * tableSizes[tableSizeIndex], tableGrowDuration);
+                tableSizeIndex++;
+
                 break;
         }
     }
