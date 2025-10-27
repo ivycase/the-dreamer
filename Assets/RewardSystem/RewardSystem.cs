@@ -26,13 +26,16 @@ public class RewardSystem : MonoBehaviour
     public GameObject eyeBall;
     public GameObject skullBall;
     public GameObject saturnBall;
+    public GameObject currentBall;
 
     [HeaderAttribute("Size")]
     public GameObject rouletteTable;
     public float tableGrowDuration = 0.25f;
     public float[] tableSizes;
 
-    public GameObject currentBall;
+    [HeaderAttribute("Passcodes")]
+    public DoorController doorController; 
+
     private int musicIndex = 0;
 
     private int tableSizeIndex;
@@ -45,6 +48,7 @@ public class RewardSystem : MonoBehaviour
     public void ActivateReward(string reward_name)
     {
         coinManager.UpdateEventLabel(reward_name);
+        print(reward_name);
 
         switch (reward_name)
         {
@@ -128,6 +132,15 @@ public class RewardSystem : MonoBehaviour
                 rouletteTable.transform.DOBlendableScaleBy(Vector3.one * tableSizes[tableSizeIndex], tableGrowDuration);
                 tableSizeIndex++;
 
+                break;
+
+            // ** PASSCODE **
+
+            case "incorrect":
+                break;
+
+            case "correct":
+                doorController.Open();
                 break;
         }
     }
