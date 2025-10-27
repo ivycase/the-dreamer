@@ -23,6 +23,8 @@ public class RewardSystem : MonoBehaviour
 
     public void ActivateReward(string reward_name)
     {
+        coinManager.UpdateEventLabel(reward_name);
+
         switch (reward_name)
         {
             case "loss":

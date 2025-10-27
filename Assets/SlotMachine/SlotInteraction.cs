@@ -104,9 +104,6 @@ public class SlotInteraction : MonoBehaviour
             return;
         }
 
-        //Debug.Log(left + " match!");
-        coinManager.UpdateEventLabel(left);
-
         rewardSystem.ActivateReward(left);
     }
 }
