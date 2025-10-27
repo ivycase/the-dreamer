@@ -38,6 +38,7 @@ public class RewardSystem : MonoBehaviour
     public float[] tableSizes;
 
     [HeaderAttribute("Passcodes")]
+    public RouletteInteraction roulette;
     public DoorController doorController; 
 
     private int musicIndex = 0;
@@ -158,6 +159,7 @@ public class RewardSystem : MonoBehaviour
                 break;
 
             case "correct":
+                roulette.isEnabled = true;
                 doorController.Open();
                 break;
         }
