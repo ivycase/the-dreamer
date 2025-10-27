@@ -9,9 +9,13 @@ public class RewardSystem : MonoBehaviour
     public int coinReward;
     public GameObject coinParticleParent;
     public GameObject r_coinParticleParent;
+    public AudioSource coinAudioSource;
+    public AudioClip coinSound;
 
     [HeaderAttribute("Butterfly")]
     public ParticleSystem butterflyParticles;
+    public AudioSource bAudioSource;
+    public AudioClip bSound;
 
     [HeaderAttribute("Music")]
     public List<AudioSource> musicSources;
@@ -61,6 +65,11 @@ public class RewardSystem : MonoBehaviour
             case "coin":
                 coinManager.AddCoins(coinReward);
 
+                if (coinAudioSource != null && coinSound != null)
+                {
+                    coinAudioSource.PlayOneShot(coinSound);
+                }
+
                 coinParticleParent.SetActive(true);
                 foreach (ParticleSystem particle in coinParticleParent.GetComponentsInChildren<ParticleSystem>())
                 {
@@ -71,6 +80,10 @@ public class RewardSystem : MonoBehaviour
             case "butterfly":
                 butterflyParticles.gameObject.SetActive(true);
                 butterflyParticles.Play();
+                if (bAudioSource != null && bSound != null)
+                {
+                    bAudioSource.PlayOneShot(bSound);
+                }
                 break;
 
             case "music":
@@ -90,6 +103,11 @@ public class RewardSystem : MonoBehaviour
             // ** ROULETTE **
             case "r_coin":
                 coinManager.AddCoins(coinReward);
+
+                if (coinAudioSource != null && coinSound != null)
+                {
+                    coinAudioSource.PlayOneShot(coinSound);
+                }
 
                 currentBall.SetActive(false);
                 regularBall.SetActive(true);

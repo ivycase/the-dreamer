@@ -8,8 +8,7 @@ public class CoinManager : MonoBehaviour
     public TMP_Text coin_label;
     public TMP_Text event_label;
     public TMP_Text gameOverText;
-    public Image redOverlay;
-    public Image bloodTextureOverlay;
+    public Image redBackground;
     public PostProcessVolume postProcessVolume;
     public int totalCoins;
     public int costPerSpin;
@@ -20,7 +19,6 @@ public class CoinManager : MonoBehaviour
     private void Start()
     {
         if (gameOverText != null) gameOverText.gameObject.SetActive(false);
-        //if (redOverlay != null) redOverlay.gameObject.SetActive(false);
 
         if (postProcessVolume != null && postProcessVolume.profile.TryGetSettings(out colorGrading))
         {
@@ -66,12 +64,12 @@ public class CoinManager : MonoBehaviour
             colorGrading.postExposure.value = Mathf.Lerp(0f, -3.5f, tintAmount);
         }
 
-        if (bloodTextureOverlay != null)
+        if (redBackground != null)
         {
             float bloodAmount = Mathf.Clamp01((Mathf.Abs(totalCoins) - 500f) / 500f);
-            Color blood = bloodTextureOverlay.color;
+            Color blood = redBackground.color;
             blood.a = bloodAmount;
-            bloodTextureOverlay.color = blood;
+            redBackground.color = blood;
         }
     }
 
@@ -83,11 +81,11 @@ public class CoinManager : MonoBehaviour
             colorGrading.postExposure.value = 0f;
         }
 
-        if (bloodTextureOverlay != null)
+        if (redBackground != null)
         {
-            Color blood = bloodTextureOverlay.color;
+            Color blood = redBackground.color;
             blood.a = 0f;
-            bloodTextureOverlay.color = blood;
+            redBackground.color = blood;
         }
     }
 
@@ -99,16 +97,11 @@ public class CoinManager : MonoBehaviour
             colorGrading.postExposure.value = -3.5f;
         }
 
-        if (bloodTextureOverlay != null)
+        if (redBackground != null)
         {
-            Color blood = bloodTextureOverlay.color;
+            Color blood = redBackground.color;
             blood.a = 1f;
-            bloodTextureOverlay.color = blood;
-        }
-
-        if (redOverlay != null)
-        {
-            redOverlay.gameObject.SetActive(true);
+            redBackground.color = blood;
         }
 
         if (gameOverText != null)
