@@ -19,6 +19,7 @@ public class CoinManager : MonoBehaviour
     private void Start()
     {
         if (gameOverText != null) gameOverText.gameObject.SetActive(false);
+        if (redBackground != null) redBackground.gameObject.SetActive(false);
 
         if (postProcessVolume != null && postProcessVolume.profile.TryGetSettings(out colorGrading))
         {
@@ -66,6 +67,7 @@ public class CoinManager : MonoBehaviour
 
         if (redBackground != null)
         {
+            redBackground.gameObject.SetActive(true);
             float bloodAmount = Mathf.Clamp01((Mathf.Abs(totalCoins) - 500f) / 500f);
             Color blood = redBackground.color;
             blood.a = bloodAmount;

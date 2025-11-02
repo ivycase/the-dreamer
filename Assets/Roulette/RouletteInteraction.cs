@@ -37,7 +37,7 @@ public class RouletteInteraction : MonoBehaviour
             if (Vector3.Distance(player.transform.position, rouletteTable.transform.position) > maxInteractDistance) return;
 
             isSpinning = true;
-            coinManager.AddCoins(-coinManager.costPerSpin * 2);
+            coinManager.AddCoins(-coinManager.costPerSpin * 1);
             StartCoroutine(Spin(ballSpinDuration));
         }
     }
