@@ -1,27 +1,38 @@
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using DG.Tweening;
+using System.Collections.Generic;
 
-public class DoorController : MonoBehaviour
+public class OpenLeftElevator : MonoBehaviour
 {
-    public GameObject[] doors;
+    [SerializeField] private KeyCode triggerKey = KeyCode.P;
+    public List<GameObject> doorPrefabs;
     public GameObject wall;
     public Renderer lightTube;
     public int materialIndex = 0;
     public Material newMaterial;
     public Light pointLight;
 
+    private float doorOpenDistance = 1.2f;
+    private float doorOpenDuration = 0.6f;
+
+    private bool hasTriggered = false;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(triggerKey) && !hasTriggered)
         {
-            Open();
+            hasTriggered = true;
+            OpenLeft();
         }
     }
 
-    public void Open()
+    public void OpenLeft()
     {
-        foreach (GameObject door in doors)
-            if (door != null) door.SetActive(false);
+        if(doorPrefabs != null && doorPrefabs.Count >= 2)
+            {
+            doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration);
+            doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration);
+        }
 
         if (wall != null) wall.SetActive(false);
 
