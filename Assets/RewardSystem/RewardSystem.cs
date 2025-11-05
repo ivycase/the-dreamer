@@ -156,6 +156,7 @@ public class RewardSystem : MonoBehaviour
             // ** RUSSIAN **
 
             case "bullet":
+                coinManager.GameOver();
                 break;
 
             case "blank":

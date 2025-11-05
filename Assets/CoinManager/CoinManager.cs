@@ -91,7 +91,7 @@ public class CoinManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         if (colorGrading != null)
         {
