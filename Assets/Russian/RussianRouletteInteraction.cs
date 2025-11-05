@@ -36,7 +36,7 @@ public class RussianRouletteInteraction : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, gunParent.transform.position) > maxInteractDistance) return;
 
-            isEnabled = false;
+            //isEnabled = false;
             isSpinning = false;
             coinManager.AddCoins(-coinManager.costPerSpin * 0);
             Stop(0f);
