@@ -153,6 +153,15 @@ public class RewardSystem : MonoBehaviour
 
                 break;
 
+            // ** RUSSIAN **
+
+            case "bullet":
+                coinManager.GameOver();
+                break;
+
+            case "blank":
+                break;
+
             // ** PASSCODE **
 
             case "incorrect":
