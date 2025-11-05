@@ -153,6 +153,14 @@ public class RewardSystem : MonoBehaviour
 
                 break;
 
+            // ** RUSSIAN **
+
+            case "bullet":
+                break;
+
+            case "blank":
+                break;
+
             // ** PASSCODE **
 
             case "incorrect":

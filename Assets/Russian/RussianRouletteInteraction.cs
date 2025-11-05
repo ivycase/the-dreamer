@@ -14,7 +14,7 @@ public class RussianRouletteInteraction : MonoBehaviour
     public float maxInteractDistance = 5.0f;
 
     public string[] chambers;
-    public float[] chamberRotations;
+    public float chamberInterval = 30.0f;
 
     [HeaderAttribute("Animation")]
     public float spinDuration = 2.0f;
@@ -38,25 +38,19 @@ public class RussianRouletteInteraction : MonoBehaviour
 
             isSpinning = true;
             coinManager.AddCoins(-coinManager.costPerSpin * 0);
-            StartCoroutine(Spin(spinDuration));
+            StartCoroutine(Stop(0f));
         }
-        /*else if (!isSpinning)
+        else if (!isSpinning)
         {
             isSpinning = true;
             StartCoroutine(Spin(spinDuration));
-        }*/
+        }
     }
 
     private IEnumerator Spin(float duration)
     {
-        string targetSymbol = chambers[chamberIndex];
+        gunCylinder.transform.DOBlendableLocalRotateBy(new Vector3(0f, 0f, chamberInterval), duration, RotateMode.FastBeyond360);
 
-        Vector3 targetRotation = gunCylinder.transform.localRotation.eulerAngles;
-        targetRotation.y = chamberRotations[chamberIndex] + 360.0f * (int)duration;
-
-        gunCylinder.transform.DORotate(targetRotation, duration, RotateMode.FastBeyond360).SetEase(Ease.OutSine);
-
-        coinManager.UpdateEventLabel(targetSymbol);
         chamberIndex = (chamberIndex + 1) % chambers.Length;
 
         yield return new WaitForSeconds(duration);
@@ -66,7 +60,10 @@ public class RussianRouletteInteraction : MonoBehaviour
 
     private IEnumerator Stop(float duration)
     {
-        gunCylinder.transform.DOComplete();
+        string outcome = chambers[chamberIndex];
+        coinManager.UpdateEventLabel(outcome);
+        rewardSystem.ActivateReward(outcome);
+
         yield return new WaitForSeconds(duration);
         isSpinning = false;
     }
