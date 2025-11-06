@@ -14,6 +14,8 @@ public class OpenRightElevator : MonoBehaviour
 
     private bool hasTriggered = false;
 
+    public SoundManager soundManager;
+
     void Update()
     {
         if (Input.GetKeyDown(triggerKey) && !hasTriggered)
@@ -25,7 +27,7 @@ public class OpenRightElevator : MonoBehaviour
 
     public void OpenRight()
     {
-
+         soundManager.PlayOpenDoor();
          if (gunPrefab != null)
              gunPrefab.SetActive(true);
 
