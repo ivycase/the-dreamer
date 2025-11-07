@@ -2077,6 +2077,10 @@ PrefabInstance:
       value: ineer_organs_brains_LOD_2
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: c813ead6a9081a14192f80c55f2ab01c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c813ead6a9081a14192f80c55f2ab01c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -3212,6 +3216,10 @@ PrefabInstance:
       value: torn_body_part_F_foot_LOD_2
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 31e3b1d1359024140b9b05fa5f110f11, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 31e3b1d1359024140b9b05fa5f110f11, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -3378,6 +3386,64 @@ ReflectionProbe:
   m_UseOcclusionCulling: 0
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 8900000, guid: 1e54cdd98c721154eb69690abe4dac21, type: 3}
+--- !u!1 &392457574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392457576}
+  - component: {fileID: 392457575}
+  m_Layer: 0
+  m_Name: OrganManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &392457575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392457574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514293edcaff25e499d49c99d59ea7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 575661130}
+  organsUnlocked: 0
+  organsOnScale: 0
+  organs:
+  - {fileID: 8203103550586311730}
+  - {fileID: 3704036989223690257}
+  - {fileID: 6106434960381699031}
+  - {fileID: 340062589771708118}
+  - {fileID: 1302702432}
+--- !u!4 &392457576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392457574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 577696444}
+  - {fileID: 528285172}
+  - {fileID: 1297381566}
+  - {fileID: 2057724184}
+  - {fileID: 561679692}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &392722104
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,6 +4629,10 @@ PrefabInstance:
       value: ineer_organs_brains_out_LOD_3
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: ce9083c49fa327b49a5693cf9ad081d8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ce9083c49fa327b49a5693cf9ad081d8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -4639,6 +4709,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 496556, guid: 3b4639ef580a0f84cb6315cab4d82391, type: 3}
   m_PrefabInstance: {fileID: 278251288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &528285171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528285172}
+  m_Layer: 0
+  m_Name: OrganTarget (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528285172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528285171}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5000003, y: 0.50000024, z: 0.49999973, w: 0.4999998}
+  m_LocalPosition: {x: -15.154, y: 0.4134, z: -5.1273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392457576}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!1 &533435857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,7 +5062,7 @@ Transform:
   m_GameObject: {fileID: 540280205}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 3.817, y: 0.183, z: 4.506}
+  m_LocalPosition: {x: 2.411, y: 0.183, z: -1.847}
   m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5293,6 +5394,37 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &561679691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561679692}
+  m_Layer: 0
+  m_Name: OrganTarget (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561679692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561679691}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6150647, y: 0.42193457, z: 0.5674251, w: 0.34884885}
+  m_LocalPosition: {x: -15.011, y: 0.383, z: -5.296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392457576}
+  m_LocalEulerAnglesHint: {x: -114.775, y: 74.404, z: 17.089005}
 --- !u!1 &575661128
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,6 +5595,37 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!1 &577696443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577696444}
+  m_Layer: 0
+  m_Name: OrganTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577696444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577696443}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.18301289, y: -0.18301292, z: 0.68301266, w: 0.6830127}
+  m_LocalPosition: {x: -15.154, y: 0.395, z: -5.288}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392457576}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 90}
 --- !u!1001 &579542893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11588,6 +11751,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: f45570433066ae34f8871744562005c7, type: 3}
       propertyPath: m_Name
       value: torn_body_part_F_foot_LOD_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f45570433066ae34f8871744562005c7, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f45570433066ae34f8871744562005c7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -182897,6 +183064,10 @@ PrefabInstance:
       value: torn_body_part_F_hand_LOD_1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a4e8830b67a0ca9439f53c0a5fb43463, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a4e8830b67a0ca9439f53c0a5fb43463, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -182991,6 +183162,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 590f6260200a7a342981cd236d9f5a92, type: 3}
       propertyPath: m_Name
       value: torn_body_part_F_hand_LOD_2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 590f6260200a7a342981cd236d9f5a92, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 590f6260200a7a342981cd236d9f5a92, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -183499,6 +183674,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 23537b9437db7c8459f6da7e7f0665db, type: 3}
       propertyPath: m_Name
       value: ineer_organs_brains_out_LOD_2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 23537b9437db7c8459f6da7e7f0665db, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 23537b9437db7c8459f6da7e7f0665db, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -184300,6 +184479,37 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 23537b9437db7c8459f6da7e7f0665db, type: 3}
   m_PrefabInstance: {fileID: 1061865897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1297381565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297381566}
+  m_Layer: 0
+  m_Name: OrganTarget (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297381566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297381565}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.4304593, y: 0.4304592, z: 0.5609856, w: 0.5609856}
+  m_LocalPosition: {x: -15.0265, y: 0.383, z: -5.1273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392457576}
+  m_LocalEulerAnglesHint: {x: -75, y: 0, z: 90}
 --- !u!1001 &1299650179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186063,6 +186273,10 @@ PrefabInstance:
       value: ineer_organs_brains_LOD_1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 64b1d6876af53be4aa57a762c558c8e5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 64b1d6876af53be4aa57a762c558c8e5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -186501,6 +186715,10 @@ PrefabInstance:
       value: Heart
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27ca0bc0993f4864e940ab8ff5dbf1ba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27ca0bc0993f4864e940ab8ff5dbf1ba, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -186511,6 +186729,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27ca0bc0993f4864e940ab8ff5dbf1ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1531303453}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27ca0bc0993f4864e940ab8ff5dbf1ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1531303454}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27ca0bc0993f4864e940ab8ff5dbf1ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1531303455}
   m_SourcePrefab: {fileID: 100100000, guid: 27ca0bc0993f4864e940ab8ff5dbf1ba, type: 3}
 --- !u!4 &1531303450 stripped
 Transform:
@@ -186582,6 +186806,41 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!135 &1531303454
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302702432}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.02395713
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1531303455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302702432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f38b54d9ef8c947a33b0778ad9406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTarget: {fileID: 561679692}
+  moveDuration: 0.5
 --- !u!4 &1536450427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 590f6260200a7a342981cd236d9f5a92, type: 3}
@@ -188231,6 +188490,10 @@ PrefabInstance:
       value: ineer_organs_brains_out_LOD_1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: deab7ac50f2e27c4fb2d11919491a264, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: deab7ac50f2e27c4fb2d11919491a264, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -189501,6 +189764,10 @@ PrefabInstance:
       value: torn_body_part_F_hand_LOD_3
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: aec36de164ff31c49b292ce1e9ab1bf5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aec36de164ff31c49b292ce1e9ab1bf5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -189554,14 +189821,7 @@ MonoBehaviour:
   respawnPoint: {fileID: 1726186840}
   isDead: 0
   anubis: {fileID: 1023233775}
-  organsUnlocked: 0
-  organsOnScale: 0
-  organs:
-  - {fileID: 8203103550586311730}
-  - {fileID: 3704036989223690257}
-  - {fileID: 6106434960381699031}
-  - {fileID: 340062589771708118}
-  - {fileID: 1302702432}
+  organManager: {fileID: 392457575}
 --- !u!4 &1851606213
 Transform:
   m_ObjectHideFlags: 0
@@ -196149,6 +196409,10 @@ PrefabInstance:
       value: torn_body_part_F_foot_LOD_3
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 93410dd8be0fa4942aaad063f7ba6665, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93410dd8be0fa4942aaad063f7ba6665, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -196492,6 +196756,37 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!1 &2057724183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057724184}
+  m_Layer: 0
+  m_Name: OrganTarget (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2057724184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057724183}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5982455, y: 0.562805, z: 0.40965644, w: 0.3969062}
+  m_LocalPosition: {x: -15.0265, y: 0.383, z: -4.978}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392457576}
+  m_LocalEulerAnglesHint: {x: -69.392, y: -172.919, z: 261.598}
 --- !u!4 &2061481570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2466524625476965016, guid: bb7ea5e56d83a434e9256b762f7bbb1b, type: 3}
@@ -196848,6 +197143,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: f1814683813bc6d46ae95c8d2ad0b77b, type: 3}
       propertyPath: m_Name
       value: ineer_organs_brains_LOD_3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f1814683813bc6d46ae95c8d2ad0b77b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f1814683813bc6d46ae95c8d2ad0b77b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -197326,7 +197625,9 @@ GameObject:
   - component: {fileID: 2055034593407386122}
   - component: {fileID: 1038024132}
   - component: {fileID: 5744475981899644660}
-  m_Layer: 0
+  - component: {fileID: 5744475981899644661}
+  - component: {fileID: 5744475981899644662}
+  m_Layer: 8
   m_Name: liver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197812,7 +198113,9 @@ GameObject:
   - component: {fileID: 3124288716790027469}
   - component: {fileID: 456861511}
   - component: {fileID: 8675970705395558453}
-  m_Layer: 0
+  - component: {fileID: 8675970705395558454}
+  - component: {fileID: 8675970705395558455}
+  m_Layer: 8
   m_Name: brains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198212,6 +198515,41 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!135 &5744475981899644661
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340062589771708118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.080388926
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5744475981899644662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340062589771708118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f38b54d9ef8c947a33b0778ad9406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTarget: {fileID: 2057724184}
+  moveDuration: 0.5
 --- !u!33 &5785386029986179807
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -198233,7 +198571,9 @@ GameObject:
   - component: {fileID: 5513175820883056395}
   - component: {fileID: 1378971665}
   - component: {fileID: 7126159051238740421}
-  m_Layer: 0
+  - component: {fileID: 7126159051238740422}
+  - component: {fileID: 7126159051238740423}
+  m_Layer: 8
   m_Name: foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198407,6 +198747,41 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!135 &7126159051238740422
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106434960381699031}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.080388926
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7126159051238740423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106434960381699031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f38b54d9ef8c947a33b0778ad9406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTarget: {fileID: 1297381566}
+  moveDuration: 0.5
 --- !u!23 &7632353676398649582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -198525,7 +198900,9 @@ GameObject:
   - component: {fileID: 7632353676398649582}
   - component: {fileID: 1007114506}
   - component: {fileID: 8203103550586311731}
-  m_Layer: 0
+  - component: {fileID: 8203103550586311732}
+  - component: {fileID: 8203103550586311733}
+  m_Layer: 8
   m_Name: hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198597,6 +198974,41 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &8203103550586311732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203103550586311730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f38b54d9ef8c947a33b0778ad9406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTarget: {fileID: 577696444}
+  moveDuration: 0.5
+--- !u!135 &8203103550586311733
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203103550586311730}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.080388926
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &8449996119330142540
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -198715,6 +199127,41 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!135 &8675970705395558454
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704036989223690257}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.080388926
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8675970705395558455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704036989223690257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f38b54d9ef8c947a33b0778ad9406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTarget: {fileID: 528285172}
+  moveDuration: 0.5
 --- !u!4 &8990668835509078340
 Transform:
   m_ObjectHideFlags: 0
@@ -198803,6 +199250,7 @@ SceneRoots:
   - {fileID: 1752047896}
   - {fileID: 240347107}
   - {fileID: 1972120864}
+  - {fileID: 392457576}
   - {fileID: 1851606213}
   - {fileID: 1726186840}
   - {fileID: 575661129}
