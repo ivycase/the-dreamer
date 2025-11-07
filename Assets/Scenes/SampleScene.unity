@@ -575,6 +575,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -596,6 +598,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1152,6 +1155,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -1173,6 +1178,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1242,7 +1248,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a23314aa87d79734480822529fc97d99, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a23314aa87d79734480822529fc97d99, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1433,7 +1439,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh-989952
-  serializedVersion: 11
+  serializedVersion: 12
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -1591,6 +1597,19 @@ Mesh:
     offset: 0
     size: 0
     path: 
+  m_MeshLodInfo:
+    serializedVersion: 2
+    m_LodSelectionCurve:
+      serializedVersion: 1
+      m_LodSlope: 0
+      m_LodBias: 0
+    m_NumLevels: 1
+    m_SubMeshes:
+    - serializedVersion: 2
+      m_Levels:
+      - serializedVersion: 1
+        m_IndexStart: 0
+        m_IndexCount: 0
 --- !u!1 &171810760 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7749650883501847010, guid: ac4f6a86f43ebcc408fd48e8858ff2a4, type: 3}
@@ -1634,7 +1653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: value
-      value: 4
+      value: spiral
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: soundManager
@@ -1643,7 +1662,7 @@ PrefabInstance:
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: passcodeSystem
       value: 
-      objectReference: {fileID: 215181057}
+      objectReference: {fileID: 258246329}
     - target: {fileID: 5234978017263573031, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2023,7 +2042,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardSystem: {fileID: 1972120865}
-  correctSequence: 060000000100000008000000
+  correctSignal: correct
+  correctSequence:
+  - 6
+  - 1
+  - 8
 --- !u!4 &215181058
 Transform:
   m_ObjectHideFlags: 0
@@ -2453,6 +2476,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2474,6 +2499,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2488,6 +2514,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 417850, guid: 18922561603e34543afad7a67793de41, type: 3}
   m_PrefabInstance: {fileID: 503103504}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &258246328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258246330}
+  - component: {fileID: 258246329}
+  m_Layer: 0
+  m_Name: RightPasscode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &258246329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258246328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a58d88ec428524588d950211f371b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardSystem: {fileID: 1972120865}
+  correctSignal: symbol_correct
+  correctSequence:
+  - saturn
+  - skull
+  - apple
+  - eye
+--- !u!4 &258246330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258246328}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.74739, y: -0.1583, z: -9.95249}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &261932924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2556,6 +2633,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8724579712148574917, guid: 28e51e9a38a5838468ba72d51518bc25, type: 3}
   m_PrefabInstance: {fileID: 1275292273}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &271226760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7609540097357705208, guid: 28e51e9a38a5838468ba72d51518bc25, type: 3}
+  m_PrefabInstance: {fileID: 1275292273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271226759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8cfe32b620c4c429876cecbf6c435a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RussianRouletteInteraction
 --- !u!1001 &278251288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2784,6 +2872,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2805,6 +2895,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4076,7 +4167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: value
-      value: 5
+      value: skull
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: soundManager
@@ -4085,7 +4176,7 @@ PrefabInstance:
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: passcodeSystem
       value: 
-      objectReference: {fileID: 215181057}
+      objectReference: {fileID: 258246329}
     - target: {fileID: 5234978017263573031, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4666,7 +4757,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bd2305761949d4747afb2489fa609f09, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: bd2305761949d4747afb2489fa609f09, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -4919,6 +5010,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4940,6 +5033,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -6021,6 +6115,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6042,6 +6138,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -180836,7 +180933,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2a3cd988b120bde488589f5f0c59f11c, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2a3cd988b120bde488589f5f0c59f11c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -181074,6 +181171,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -181095,6 +181194,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -181861,7 +181961,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f143028c4cf06b947b2631dd500cee1e, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f143028c4cf06b947b2631dd500cee1e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -182005,7 +182105,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64b9f77c7e894ab4fa6309f9515b6063, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 64b9f77c7e894ab4fa6309f9515b6063, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -182828,6 +182928,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -182849,6 +182951,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -182945,7 +183048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: value
-      value: 7
+      value: saturn
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: soundManager
@@ -182954,7 +183057,7 @@ PrefabInstance:
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: passcodeSystem
       value: 
-      objectReference: {fileID: 215181057}
+      objectReference: {fileID: 258246329}
     - target: {fileID: 5234978017263573031, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -183230,6 +183333,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -183251,6 +183356,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -184370,7 +184476,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2f7bf5aa6768e9446a78cf9d76c4d087, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2f7bf5aa6768e9446a78cf9d76c4d087, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -184780,7 +184886,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0589a72ed66abe943b67576b1f32731b, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0589a72ed66abe943b67576b1f32731b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -187049,6 +187155,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -187070,6 +187178,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -187243,7 +187352,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 98036dd22c4a18d4cba484f043949df9, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 98036dd22c4a18d4cba484f043949df9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.745
@@ -187358,6 +187467,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -187379,6 +187490,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -188212,6 +188324,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -188233,6 +188347,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -188298,7 +188413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: value
-      value: 8
+      value: eye
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: soundManager
@@ -188307,7 +188422,7 @@ PrefabInstance:
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: passcodeSystem
       value: 
-      objectReference: {fileID: 215181057}
+      objectReference: {fileID: 258246329}
     - target: {fileID: 5234978017263573031, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -188529,6 +188644,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -188550,6 +188667,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -188627,7 +188745,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e0e843a684f2fe04eb3a3e825efcf0d5, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e0e843a684f2fe04eb3a3e825efcf0d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
@@ -188990,7 +189108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: value
-      value: 1
+      value: apple
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: soundManager
@@ -188999,7 +189117,7 @@ PrefabInstance:
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: passcodeSystem
       value: 
-      objectReference: {fileID: 215181057}
+      objectReference: {fileID: 258246329}
     - target: {fileID: 5234978017263573031, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -189100,7 +189218,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dcd30944ab8102e4e88e5aecf82f1f84, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: dcd30944ab8102e4e88e5aecf82f1f84, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -189337,7 +189455,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 601349ea08a4f2041ab81bf77576f26b, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 601349ea08a4f2041ab81bf77576f26b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -189502,6 +189620,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -189523,6 +189643,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -194323,7 +194444,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4494e2270a3b5a5489bcee790408f577, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4494e2270a3b5a5489bcee790408f577, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -194463,6 +194584,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -194484,6 +194607,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -194807,6 +194931,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1110541186}
     - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: russian
+      value: 
+      objectReference: {fileID: 271226760}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
       propertyPath: roulette
       value: 
       objectReference: {fileID: 1110541188}
@@ -194871,9 +194999,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1765250512}
     - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: doorControllerLeft
+      value: 
+      objectReference: {fileID: 1023233774}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
       propertyPath: doorControllerleft
       value: 
       objectReference: {fileID: 1023233774}
+    - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
+      propertyPath: doorControllerRight
+      value: 
+      objectReference: {fileID: 1023233773}
     - target: {fileID: 8480841481819779801, guid: 4cdd369ea4a1c35499fc166c2ab5d934, type: 3}
       propertyPath: r_coinParticleParent
       value: 
@@ -195724,6 +195860,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -195745,6 +195883,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -195987,7 +196126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: value
-      value: 2
+      value: moon
       objectReference: {fileID: 0}
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: soundManager
@@ -195996,7 +196135,7 @@ PrefabInstance:
     - target: {fileID: 4642215557659150650, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: passcodeSystem
       value: 
-      objectReference: {fileID: 215181057}
+      objectReference: {fileID: 258246329}
     - target: {fileID: 5234978017263573031, guid: c22699d3ca0df80449cb6b766e8cfc90, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -196827,6 +196966,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -196848,6 +196989,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -196872,6 +197014,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -196893,6 +197037,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -196989,6 +197134,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197010,6 +197157,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197049,6 +197197,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197070,6 +197220,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197102,6 +197253,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197123,6 +197276,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197192,6 +197346,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197213,6 +197369,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197278,6 +197435,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197299,6 +197458,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197454,6 +197614,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197475,6 +197637,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197636,6 +197799,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197657,6 +197822,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197681,6 +197847,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197702,6 +197870,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197760,6 +197929,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197781,6 +197952,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197846,6 +198018,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -197867,6 +198041,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197897,6 +198072,7 @@ SceneRoots:
   - {fileID: 1798370916}
   - {fileID: 807823721}
   - {fileID: 426498216}
+  - {fileID: 258246330}
   - {fileID: 1275292273}
   - {fileID: 1345020204}
   - {fileID: 836323543}

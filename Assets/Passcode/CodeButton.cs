@@ -5,7 +5,7 @@ public class CodeButton : MonoBehaviour
     public PasscodeSystem passcodeSystem;
     public SoundManager soundManager;
 
-    public int value;
+    public string value;
     public void Press()
     {
         passcodeSystem.AddToSequence(this);
