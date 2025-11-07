@@ -4,12 +4,15 @@ using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 using System.Collections;
 using DG.Tweening;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 
 public class CoinManager : MonoBehaviour
 {
     public SoundManager soundManager;
     public TMP_Text coin_label;
+    public TMP_Text world_coin_label;
     public TMP_Text event_label;
     public TMP_Text gameOverText;
     public Image redBackground;
@@ -20,6 +23,11 @@ public class CoinManager : MonoBehaviour
     public MonoBehaviour playerController;
     public Transform respawnPoint;
     private bool resetMoney = false;
+    public bool isDead = false;
+
+    public OpenFrontElevator anubis;
+    public OrganManager organManager;
+    private bool hasGunFired;
 
     private ColorGrading colorGrading;
 
@@ -37,11 +45,13 @@ public class CoinManager : MonoBehaviour
         }
 
         UpdateCoinLabel();
+        organManager.AdjustScales();
     }
 
     private void UpdateCoinLabel()
     {
         coin_label.text = "$" + totalCoins;
+        world_coin_label.text = "$" + totalCoins;
         coin_label.enableVertexGradient = true;
 
         if (totalCoins < 500)
@@ -67,9 +77,9 @@ public class CoinManager : MonoBehaviour
 
         if (colorGrading != null)
         {
-            Color redTint = Color.Lerp(Color.white, new Color(20f, 0f, 0f), tintAmount);
+            Color redTint = Color.Lerp(Color.white, new Color(1.5f, 0f, 0f), tintAmount);
             colorGrading.colorFilter.value = redTint;
-            colorGrading.postExposure.value = Mathf.Lerp(0f, -3.5f, tintAmount);
+            colorGrading.postExposure.value = Mathf.Lerp(0f, -1.0f, tintAmount);
         }
 
         //if (redBackground != null)
@@ -116,6 +126,7 @@ public class CoinManager : MonoBehaviour
 
     public void Gunshot()
     {
+        hasGunFired = true;
         resetMoney = false;
         soundManager.PlayShoot();
         if (colorGrading != null)
@@ -142,6 +153,7 @@ public class CoinManager : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        isDead = true;
         yield return new WaitForSeconds(0.4f);
         float t = 0;
         soundManager.PlayScream();
@@ -176,8 +188,21 @@ public class CoinManager : MonoBehaviour
             soundManager.PlayCoin(); ;
         } 
         UpdateCoinLabel();
+        AddOrgan();
+        isDead = false;
     }
 
+    public void AddOrgan()
+    {
+        organManager.AddOrgan();
+
+        if (!organManager.isEnabled && hasGunFired)
+        {
+            anubis.OpenFront();
+            organManager.isEnabled = true;
+            organManager.AdjustScales();
+        }
+    }
     public void UpdateEventLabel(string eventText)
     {
         event_label.text = "event: " + eventText;
@@ -187,5 +212,6 @@ public class CoinManager : MonoBehaviour
     {
         totalCoins += amount;
         UpdateCoinLabel();
+        organManager.AdjustScales();
     }
 }

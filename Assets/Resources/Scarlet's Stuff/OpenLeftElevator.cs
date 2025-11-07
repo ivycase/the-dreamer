@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class OpenLeftElevator : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class OpenLeftElevator : MonoBehaviour
     public int materialIndex = 0;
     public Material newMaterial;
     public Light pointLight;
+    public Light spotLight;
 
     private float doorOpenDistance = 1.2f;
-    private float doorOpenDuration = 0.6f;
+    private float doorOpenDuration = 1.6f;
 
     private bool hasTriggered = false;
 
@@ -33,8 +35,8 @@ public class OpenLeftElevator : MonoBehaviour
         soundManager.PlayOpenDoor();
         if (doorPrefabs != null && doorPrefabs.Count >= 2)
             {
-            doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration);
-            doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration);
+            doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
+            doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce); ;
         }
 
         if (wall != null) wall.SetActive(false);
@@ -47,5 +49,6 @@ public class OpenLeftElevator : MonoBehaviour
         }
 
         if (pointLight != null) pointLight.enabled = true;
+        if (spotLight != null) spotLight.enabled = true;
     }
 }

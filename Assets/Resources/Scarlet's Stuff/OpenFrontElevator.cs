@@ -10,27 +10,27 @@ public class OpenFrontElevator : MonoBehaviour
     public float moveDistance = 1f;
     public float moveDuration = 1f;
     private float doorOpenDistance = 1.2f;
-    private float doorOpenDuration = 0.6f;
+    private float doorOpenDuration = 1.6f;
     public float moveDelay = 0.5f;
 
-    private bool hasTriggered = false;
+    public bool hasTriggered = false;
 
     public SoundManager soundManager;
     void Update()
     {
         if (Input.GetKeyDown(triggerKey) && !hasTriggered)
         {
-            hasTriggered = true;
             OpenFront();
         }
     }
     public void OpenFront()
     {
+        hasTriggered = true;
         soundManager.PlayOpenDoor();
         if (doorPrefabs != null && doorPrefabs.Count >= 2)
         {
-            doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration);
-            doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration);
+            doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
+            doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
         }
         if (movePrefab != null)
         {

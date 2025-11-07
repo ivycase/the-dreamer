@@ -8,9 +8,11 @@ public class PasscodeSystem : MonoBehaviour
 {
     public RewardSystem rewardSystem;
 
-    public List<int> correctSequence = new();
+    public string correctSignal = "correct";
 
-    private List<int> currentSequence = new();
+    public List<string> correctSequence = new();
+
+    private List<string> currentSequence = new();
 
     public void AddToSequence(CodeButton button)
     {
@@ -39,7 +41,7 @@ public class PasscodeSystem : MonoBehaviour
         }
     }
 
-    void CheckSequence(List<int> sequence)
+    void CheckSequence(List<string> sequence)
     {
         for (int i = 0; i < sequence.Count; i++) {
             if (sequence[i] != correctSequence[i])
@@ -49,7 +51,7 @@ public class PasscodeSystem : MonoBehaviour
             }
         }
 
-        rewardSystem.ActivateReward("correct");
+        rewardSystem.ActivateReward(correctSignal);
     }
 
     IEnumerator DelayOff(Light target, float delay)

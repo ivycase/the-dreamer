@@ -236,6 +236,8 @@ MonoBehaviour:
   moveDistance: 1
   moveDuration: 1.2
   moveDelay: 0.1
+  hasTriggered: 0
+  soundManager: {fileID: 0}
 --- !u!114 &543445819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +256,8 @@ MonoBehaviour:
   doorPrefabs:
   - {fileID: 0}
   - {fileID: 0}
+  hasTriggered: 0
+  soundManager: {fileID: 0}
 --- !u!114 &543445820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +279,8 @@ MonoBehaviour:
   materialIndex: 2
   newMaterial: {fileID: 2100000, guid: b3ec1ae07c86d0a4a82517082179923f, type: 2}
   pointLight: {fileID: 0}
+  spotLight: {fileID: 0}
+  soundManager: {fileID: 0}
 --- !u!1 &1038410176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 9291cf33ff49a2f4ebd24ae9c8d64d05, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ba90654ba7dbc6940a6137b2a2abf6cd, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1

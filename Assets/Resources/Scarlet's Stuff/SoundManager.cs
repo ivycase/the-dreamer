@@ -10,7 +10,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource ShootSource;
     public AudioSource TickSource;
     public AudioSource SpinSource;
+    public AudioSource ClickSource;
     public AudioSource OpenDoorSource;
+    public AudioSource SquishSource;
 
     public void PlayScream()
     {
@@ -52,8 +54,25 @@ public class SoundManager : MonoBehaviour
         if (SpinSource != null) SpinSource.Play();
     }
 
+    public void PlayClick()
+    {
+        if (ClickSource != null) ClickSource.Play();
+    }
+
     public void PlayOpenDoor() 
     {
-        if (OpenDoorSource != null) OpenDoorSource.Play();
+        if (OpenDoorSource == null) return;
+
+        OpenDoorSource.Stop();
+        OpenDoorSource.Play();
+        OpenDoorSource.pitch -= 0.1f;
+    }
+
+    public void PlaySquish()
+    {
+        if (SquishSource == null) return;
+
+        SquishSource.pitch = Random.Range(0.75f, 1.25f);
+        SquishSource.Play();
     }
 }

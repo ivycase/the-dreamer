@@ -39,7 +39,9 @@ public class RewardSystem : MonoBehaviour
 
     [HeaderAttribute("Passcodes")]
     public RouletteInteraction roulette;
-    public OpenLeftElevator doorControllerleft; 
+    public OpenLeftElevator doorControllerLeft;
+    public RussianRouletteInteraction russian;
+    public OpenRightElevator doorControllerRight;
 
     private int musicIndex = 0;
 
@@ -148,6 +150,7 @@ public class RewardSystem : MonoBehaviour
                 break;
 
             case "blank":
+                soundManager.PlayClick();
                 break;
 
             // ** PASSCODE **
@@ -157,7 +160,11 @@ public class RewardSystem : MonoBehaviour
 
             case "correct":
                 roulette.isEnabled = true;
-                doorControllerleft.OpenLeft();
+                doorControllerLeft.OpenLeft();
+                break;
+
+            case "symbol_correct":
+                doorControllerRight.OpenRight();
                 break;
         }
     }

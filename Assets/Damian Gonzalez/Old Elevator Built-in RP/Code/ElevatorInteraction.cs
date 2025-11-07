@@ -44,6 +44,10 @@ namespace OldElevator
                     {
                         code.Press();
                     }
+                    else if (hit.collider.transform.TryGetComponent(out Organ organ))
+                    {
+                        organ.UseOrgan();
+                    }
                 }
                 else
                 {
