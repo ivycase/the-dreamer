@@ -25,9 +25,11 @@ public class CoinManager : MonoBehaviour
     public bool isDead = false;
 
     [HeaderAttribute("Organs")]
+    public OpenFrontElevator anubis;
     public int organsUnlocked;
     public int organsOnScale;
     public List<GameObject> organs;
+    private bool hasGunFired;
 
     private ColorGrading colorGrading;
 
@@ -124,6 +126,7 @@ public class CoinManager : MonoBehaviour
 
     public void Gunshot()
     {
+        hasGunFired = true;
         resetMoney = false;
         soundManager.PlayShoot();
         if (colorGrading != null)
@@ -198,6 +201,11 @@ public class CoinManager : MonoBehaviour
         organs[organsUnlocked].transform.DOPunchRotation(new Vector3(0f, 60f, 0f), 0.2f);
         soundManager.PlaySquish();
         organsUnlocked += 1;
+
+        if (!anubis.hasTriggered && hasGunFired)
+        {
+            anubis.OpenFront();
+        }
     }
     public void UpdateEventLabel(string eventText)
     {

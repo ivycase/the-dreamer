@@ -12,7 +12,7 @@ public class OpenRightElevator : MonoBehaviour
     private float doorOpenDistance = 1.2f;
     private float doorOpenDuration = 1.6f;
 
-    private bool hasTriggered = false;
+    public bool hasTriggered = false;
 
     public SoundManager soundManager;
 

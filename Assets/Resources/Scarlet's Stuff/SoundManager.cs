@@ -61,7 +61,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlayOpenDoor() 
     {
-        if (OpenDoorSource != null) OpenDoorSource.Play();
+        if (OpenDoorSource == null) return;
+
+        OpenDoorSource.Play();
+        OpenDoorSource.pitch -= 0.2f;
     }
 
     public void PlaySquish()
