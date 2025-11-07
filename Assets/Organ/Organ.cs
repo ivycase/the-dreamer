@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Organ : MonoBehaviour
 {
+    public OrganManager organManager;
+
     [HeaderAttribute("Animation")]
     public Transform moveTarget;
     public float moveDuration = 0.5f;
     public void UseOrgan()
     {
         print("ni hao");
-        transform.DOMove(moveTarget.position, moveDuration).SetEase(Ease.InOutBack);
-        transform.DORotate(moveTarget.rotation.eulerAngles, moveDuration).SetEase(Ease.InSine);
+        transform.SetParent(moveTarget);
+        transform.DOLocalMove(Vector3.zero, moveDuration).SetEase(Ease.InOutBack);
+        transform.DOLocalRotate(Vector3.zero, moveDuration).SetEase(Ease.InSine);
+        organManager.AddToScale();
     }
 }

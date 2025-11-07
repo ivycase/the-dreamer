@@ -12,6 +12,7 @@ public class CoinManager : MonoBehaviour
 {
     public SoundManager soundManager;
     public TMP_Text coin_label;
+    public TMP_Text world_coin_label;
     public TMP_Text event_label;
     public TMP_Text gameOverText;
     public Image redBackground;
@@ -44,11 +45,13 @@ public class CoinManager : MonoBehaviour
         }
 
         UpdateCoinLabel();
+        organManager.AdjustScales();
     }
 
     private void UpdateCoinLabel()
     {
         coin_label.text = "$" + totalCoins;
+        world_coin_label.text = "$" + totalCoins;
         coin_label.enableVertexGradient = true;
 
         if (totalCoins < 500)
@@ -207,5 +210,6 @@ public class CoinManager : MonoBehaviour
     {
         totalCoins += amount;
         UpdateCoinLabel();
+        organManager.AdjustScales();
     }
 }
