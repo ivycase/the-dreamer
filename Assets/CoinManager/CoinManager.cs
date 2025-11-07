@@ -196,9 +196,11 @@ public class CoinManager : MonoBehaviour
     {
         organManager.AddOrgan();
 
-        if (!anubis.hasTriggered && hasGunFired)
+        if (!organManager.isEnabled && hasGunFired)
         {
             anubis.OpenFront();
+            organManager.isEnabled = true;
+            organManager.AdjustScales();
         }
     }
     public void UpdateEventLabel(string eventText)

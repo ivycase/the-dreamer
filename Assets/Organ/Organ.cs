@@ -11,7 +11,9 @@ public class Organ : MonoBehaviour
     public float moveDuration = 0.5f;
     public void UseOrgan()
     {
-        print("ni hao");
+        if (!organManager.isEnabled) return;
+
+        GetComponent<Collider>().enabled = false;
         transform.SetParent(moveTarget);
         transform.DOLocalMove(Vector3.zero, moveDuration).SetEase(Ease.InOutBack);
         transform.DOLocalRotate(Vector3.zero, moveDuration).SetEase(Ease.InSine);

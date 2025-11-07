@@ -114,7 +114,7 @@ MonoBehaviour:
     defaultState: 4
   ldrLutContribution:
     overrideState: 1
-    value: 0.342
+    value: 0.203
   temperature:
     overrideState: 0
     value: 37
@@ -125,7 +125,7 @@ MonoBehaviour:
     overrideState: 0
     value: {r: 1, g: 0.49705702, b: 0, a: 1}
   hueShift:
-    overrideState: 1
+    overrideState: 0
     value: 14
   saturation:
     overrideState: 1

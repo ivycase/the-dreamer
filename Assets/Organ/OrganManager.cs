@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class OrganManager : MonoBehaviour
 {
+    public bool isEnabled;
+
     public CoinManager coinManager;
     public SoundManager soundManager;
     public int organsUnlocked;
@@ -18,6 +21,13 @@ public class OrganManager : MonoBehaviour
 
     private Vector3 rightScaleStartPos;
     private Vector3 leftScaleStartPos;
+
+    [HeaderAttribute("Animation")]
+    public GameObject anubis;
+    public Light[] endLights;
+    public float endAnimDuration = 10f;
+
+    private bool isEnding;
 
     private void Start()
     {
@@ -44,6 +54,7 @@ public class OrganManager : MonoBehaviour
     
     public void AdjustScales()
     {
+        if (!isEnabled) return;
 
         //int coinWeight = coinManager.totalCoins / 100;
         //int organWeight = organsOnScale * 4;
@@ -64,7 +75,29 @@ public class OrganManager : MonoBehaviour
         }
 
         //coinManager.coin_label.enabled = false;
-        SceneManager.LoadScene("BeachScene", LoadSceneMode.Single);
+        if (isEnding) return;
+        isEnding = true;
+        StartCoroutine(WinAnim());
         return;
+    }
+
+    IEnumerator WinAnim()
+    {
+        foreach(Light light in endLights)
+        {
+            light.DOIntensity(5000f, endAnimDuration).SetEase(Ease.InBounce);
+        }
+
+        soundManager.PlayOpenDoor();
+        anubis.transform.DOShakeScale(endAnimDuration * 0.2f, 10f).SetEase(Ease.InExpo);
+        yield return new WaitForSeconds(endAnimDuration * 0.2f);
+        soundManager.PlayOpenDoor();
+        anubis.transform.DOShakeScale(endAnimDuration * 0.2f, 10f).SetEase(Ease.InExpo);
+        yield return new WaitForSeconds(endAnimDuration * 0.2f);
+        soundManager.PlayOpenDoor();
+        anubis.transform.DOShakeScale(endAnimDuration * 0.2f, 10f).SetEase(Ease.InExpo);
+
+        yield return new WaitForSeconds(endAnimDuration * 0.4f);
+        SceneManager.LoadScene("BeachScene", LoadSceneMode.Single);
     }
 }
