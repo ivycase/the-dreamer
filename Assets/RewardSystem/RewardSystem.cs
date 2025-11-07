@@ -150,6 +150,7 @@ public class RewardSystem : MonoBehaviour
                 break;
 
             case "blank":
+                soundManager.PlayClick();
                 break;
 
             // ** PASSCODE **

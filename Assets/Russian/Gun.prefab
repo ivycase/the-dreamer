@@ -275,15 +275,10 @@ MonoBehaviour:
   - 
   - 
   - 
-  chamberRotations:
-  - -30
-  - -90
-  - -60
-  - -90
-  - -120
-  - -160
+  chamberInterval: 30
   spinDuration: 2
   transitionPunchAmount: 1.1
   transitionPunchDuration: 0.5
   gunCylinder: {fileID: 347560865179100314}
   gun: {fileID: 8064751565983448498}
+  soundManager: {fileID: 0}

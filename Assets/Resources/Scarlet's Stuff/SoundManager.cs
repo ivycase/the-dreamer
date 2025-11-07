@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource ShootSource;
     public AudioSource TickSource;
     public AudioSource SpinSource;
+    public AudioSource ClickSource;
     public AudioSource OpenDoorSource;
 
     public void PlayScream()
@@ -50,6 +51,11 @@ public class SoundManager : MonoBehaviour
     public void PlaySpin() 
     {
         if (SpinSource != null) SpinSource.Play();
+    }
+
+    public void PlayClick()
+    {
+        if (ClickSource != null) ClickSource.Play();
     }
 
     public void PlayOpenDoor() 

@@ -39,9 +39,9 @@ public class RussianRouletteInteraction : MonoBehaviour
             if (Vector3.Distance(player.transform.position, gunParent.transform.position) > maxInteractDistance) return;
 
             //isEnabled = false;
-            isSpinning = false;
+            //isSpinning = false;
             coinManager.AddCoins(-coinManager.costPerSpin * 0);
-            Stop(0f);
+            Stop(2f);
         }
         else if (!isSpinning)
         {
@@ -59,12 +59,14 @@ public class RussianRouletteInteraction : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
+        StopCoroutine("Spin");
         isSpinning = false;
     }
 
     private void Stop(float duration)
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();W
+        gunParent.transform.DOBlendablePunchRotation(new Vector3(25f, 0f, 0f), duration, 5, 0.5f).SetEase(Ease.OutCubic);
         string outcome = chambers[chamberIndex];
         coinManager.UpdateEventLabel(outcome);
         rewardSystem.ActivateReward(outcome);
