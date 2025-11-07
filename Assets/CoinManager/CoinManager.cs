@@ -69,7 +69,7 @@ public class CoinManager : MonoBehaviour
         {
             Color redTint = Color.Lerp(Color.white, new Color(1f, 0f, 0f), tintAmount);
             colorGrading.colorFilter.value = redTint;
-            colorGrading.postExposure.value = Mathf.Lerp(0f, -0.25f, tintAmount);
+            colorGrading.postExposure.value = Mathf.Lerp(0f, -0.6f, tintAmount);
         }
 
         //if (redBackground != null)
