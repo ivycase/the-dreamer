@@ -10,7 +10,7 @@ public class OpenRightElevator : MonoBehaviour
     public List<GameObject> doorPrefabs;
 
     private float doorOpenDistance = 1.2f;
-    private float doorOpenDuration = 0.6f;
+    private float doorOpenDuration = 1.6f;
 
     private bool hasTriggered = false;
 
@@ -36,8 +36,8 @@ public class OpenRightElevator : MonoBehaviour
 
          if(doorPrefabs != null && doorPrefabs.Count >= 2)
          {
-             doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration);
-             doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration);
+             doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
+             doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
          }
     }
 }
