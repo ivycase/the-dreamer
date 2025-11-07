@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource SpinSource;
     public AudioSource ClickSource;
     public AudioSource OpenDoorSource;
+    public AudioSource SquishSource;
 
     public void PlayScream()
     {
@@ -61,5 +62,13 @@ public class SoundManager : MonoBehaviour
     public void PlayOpenDoor() 
     {
         if (OpenDoorSource != null) OpenDoorSource.Play();
+    }
+
+    public void PlaySquish()
+    {
+        if (SquishSource == null) return;
+
+        SquishSource.pitch = Random.Range(0.75f, 1.25f);
+        SquishSource.Play();
     }
 }

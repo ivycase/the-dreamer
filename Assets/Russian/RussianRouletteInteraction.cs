@@ -50,6 +50,8 @@ public class RussianRouletteInteraction : MonoBehaviour
             eye.transform.LookAt(player.transform.position + Vector3.up * 100f);
         }
 
+        if (coinManager.isDead) return;
+
         if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             if (Vector3.Distance(player.transform.position, gunParent.transform.position) > maxInteractDistance) return;

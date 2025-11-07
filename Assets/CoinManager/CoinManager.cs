@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 using System.Collections;
 using DG.Tweening;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 
 public class CoinManager : MonoBehaviour
@@ -20,6 +22,12 @@ public class CoinManager : MonoBehaviour
     public MonoBehaviour playerController;
     public Transform respawnPoint;
     private bool resetMoney = false;
+    public bool isDead = false;
+
+    [HeaderAttribute("Organs")]
+    public int organsUnlocked;
+    public int organsOnScale;
+    public List<GameObject> organs;
 
     private ColorGrading colorGrading;
 
@@ -142,6 +150,7 @@ public class CoinManager : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        isDead = true;
         yield return new WaitForSeconds(0.4f);
         float t = 0;
         soundManager.PlayScream();
@@ -176,8 +185,20 @@ public class CoinManager : MonoBehaviour
             soundManager.PlayCoin(); ;
         } 
         UpdateCoinLabel();
+        AddOrgan();
+        isDead = false;
     }
 
+    public void AddOrgan()
+    {
+        if (organsUnlocked >= organs.Count) return;
+
+        organs[organsUnlocked].SetActive(true);
+        organs[organsUnlocked].transform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.25f);
+        organs[organsUnlocked].transform.DOPunchRotation(new Vector3(0f, 60f, 0f), 0.2f);
+        soundManager.PlaySquish();
+        organsUnlocked += 1;
+    }
     public void UpdateEventLabel(string eventText)
     {
         event_label.text = "event: " + eventText;
