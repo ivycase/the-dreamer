@@ -11,7 +11,7 @@ public class RussianRouletteInteraction : MonoBehaviour
 
     public GameObject player;
     public GameObject gunParent;
-    public float maxInteractDistance = 5.0f;
+    public float maxInteractDistance = 1.0f;
 
     public string[] chambers;
     public float chamberInterval = 30.0f;
@@ -24,6 +24,8 @@ public class RussianRouletteInteraction : MonoBehaviour
     [HeaderAttribute("Animateable")]
     public Transform gunCylinder;
     public Transform gun;
+
+    public SoundManager soundManager;
 
     private int chamberIndex;
     private bool isSpinning;
@@ -44,6 +46,7 @@ public class RussianRouletteInteraction : MonoBehaviour
         else if (!isSpinning)
         {
             isSpinning = true;
+            soundManager.PlayTick();
             StartCoroutine(Spin(spinDuration));
         }
     }

@@ -14,6 +14,8 @@ public class OpenFrontElevator : MonoBehaviour
     public float moveDelay = 0.5f;
 
     private bool hasTriggered = false;
+
+    public SoundManager soundManager;
     void Update()
     {
         if (Input.GetKeyDown(triggerKey) && !hasTriggered)
@@ -24,6 +26,7 @@ public class OpenFrontElevator : MonoBehaviour
     }
     public void OpenFront()
     {
+        soundManager.PlayOpenDoor();
         if (doorPrefabs != null && doorPrefabs.Count >= 2)
         {
             doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration);

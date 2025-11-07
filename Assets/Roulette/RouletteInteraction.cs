@@ -28,6 +28,8 @@ public class RouletteInteraction : MonoBehaviour
     private int symbolIndex; // symbol order is fixed on the roulette table
     private bool isSpinning;
 
+    public SoundManager soundManager;
+
     void Update()
     {
         if (isSpinning || !isEnabled) return;
@@ -38,6 +40,7 @@ public class RouletteInteraction : MonoBehaviour
 
             isSpinning = true;
             coinManager.AddCoins(-coinManager.costPerSpin * 1);
+            soundManager.PlaySpin();
             StartCoroutine(Spin(ballSpinDuration));
         }
     }

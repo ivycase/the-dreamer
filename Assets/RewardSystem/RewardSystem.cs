@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RewardSystem : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     [HeaderAttribute("Coin")]
     public CoinManager coinManager;
     public int coinReward;
     public GameObject coinParticleParent;
     public GameObject r_coinParticleParent;
-    public AudioSource coinAudioSource;
-    public AudioClip coinSound;
 
     [HeaderAttribute("Butterfly")]
     public ParticleSystem butterflyParticles;
@@ -65,12 +65,7 @@ public class RewardSystem : MonoBehaviour
             // ** SLOT MACHINE **
             case "coin":
                 coinManager.AddCoins(coinReward);
-
-                if (coinAudioSource != null && coinSound != null)
-                {
-                    coinAudioSource.PlayOneShot(coinSound);
-                }
-
+                soundManager.PlayCoin();
                 coinParticleParent.SetActive(true);
                 foreach (ParticleSystem particle in coinParticleParent.GetComponentsInChildren<ParticleSystem>())
                 {
@@ -81,10 +76,7 @@ public class RewardSystem : MonoBehaviour
             case "butterfly":
                 butterflyParticles.gameObject.SetActive(true);
                 butterflyParticles.Play();
-                if (bAudioSource != null && bSound != null)
-                {
-                    bAudioSource.PlayOneShot(bSound);
-                }
+                soundManager.PlayButterfly();
                 break;
 
             case "music":
@@ -95,6 +87,7 @@ public class RewardSystem : MonoBehaviour
                 break;
 
             case "cards":
+                soundManager.PlayCard();
                 foreach (Transform card in cardsParent.GetComponentsInChildren<Transform>())
                 {
                     card.DORotate(new Vector3(0, 0, 180), cardsRotateDuration, RotateMode.LocalAxisAdd);
@@ -103,13 +96,8 @@ public class RewardSystem : MonoBehaviour
 
             // ** ROULETTE **
             case "r_coin":
+                soundManager.PlayCoin();
                 coinManager.AddCoins(coinReward);
-
-                if (coinAudioSource != null && coinSound != null)
-                {
-                    coinAudioSource.PlayOneShot(coinSound);
-                }
-
                 currentBall.SetActive(false);
                 regularBall.SetActive(true);
                 currentBall = regularBall;
@@ -156,7 +144,7 @@ public class RewardSystem : MonoBehaviour
             // ** RUSSIAN **
 
             case "bullet":
-                coinManager.GameOver();
+                coinManager.Gunshot();
                 break;
 
             case "blank":

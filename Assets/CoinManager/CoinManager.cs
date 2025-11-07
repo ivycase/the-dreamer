@@ -2,9 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
+using System.Collections;
+using DG.Tweening;
+
 
 public class CoinManager : MonoBehaviour
 {
+    public SoundManager soundManager;
     public TMP_Text coin_label;
     public TMP_Text event_label;
     public TMP_Text gameOverText;
@@ -13,6 +17,9 @@ public class CoinManager : MonoBehaviour
     public int totalCoins;
     public int costPerSpin;
     public Color positive_top, positive_down, negative_top, negative_down = new Color(1f, 1f, 1f);
+    public MonoBehaviour playerController;
+    public Transform respawnPoint;
+    private bool resetMoney = false;
 
     private ColorGrading colorGrading;
 
@@ -37,7 +44,7 @@ public class CoinManager : MonoBehaviour
         coin_label.text = "$" + totalCoins;
         coin_label.enableVertexGradient = true;
 
-        if (totalCoins < 0)
+        if (totalCoins < 500)
         {
             coin_label.colorGradient = new VertexGradient(negative_top, negative_top, negative_down, negative_down);
             UpdateRedTint();
@@ -48,7 +55,7 @@ public class CoinManager : MonoBehaviour
             ResetEffects();
         }
 
-        if (totalCoins <= -1000)
+        if (totalCoins <= 0)
         {
             GameOver();
         }
@@ -56,7 +63,7 @@ public class CoinManager : MonoBehaviour
 
     private void UpdateRedTint()
     {
-        float tintAmount = Mathf.Clamp01(Mathf.Abs(totalCoins) / 1000f);
+        float tintAmount = Mathf.Clamp01(Mathf.Abs(600f - totalCoins) / 1000f);
 
         if (colorGrading != null)
         {
@@ -65,14 +72,14 @@ public class CoinManager : MonoBehaviour
             colorGrading.postExposure.value = Mathf.Lerp(0f, -3.5f, tintAmount);
         }
 
-        if (redBackground != null)
-        {
-            redBackground.gameObject.SetActive(true);
-            float bloodAmount = Mathf.Clamp01((Mathf.Abs(totalCoins) - 500f) / 500f);
-            Color blood = redBackground.color;
-            blood.a = bloodAmount;
-            redBackground.color = blood;
-        }
+        //if (redBackground != null)
+        //{
+        //    redBackground.gameObject.SetActive(true);
+        //    float bloodAmount = Mathf.Clamp01((Mathf.Abs(totalCoins) - 500f) / 500f);
+        //    Color blood = redBackground.color;
+        //    blood.a = bloodAmount;
+        //    redBackground.color = blood;
+        //}
     }
 
     private void ResetEffects()
@@ -83,33 +90,92 @@ public class CoinManager : MonoBehaviour
             colorGrading.postExposure.value = 0f;
         }
 
-        if (redBackground != null)
-        {
-            Color blood = redBackground.color;
-            blood.a = 0f;
-            redBackground.color = blood;
-        }
+        //if (redBackground != null)
+        //{
+        //    Color blood = redBackground.color;
+        //    blood.a = 0f;
+        //    redBackground.color = blood;
+        //}
     }
-
     public void GameOver()
     {
+        resetMoney = true;
+        if (playerController != null) playerController.enabled = false;
         if (colorGrading != null)
         {
             colorGrading.colorFilter.value = new Color(20f, 0f, 0f);
-            colorGrading.postExposure.value = -3.5f;
         }
+        //if (redBackground != null)
+        //{
+        //    Color blood = redBackground.color;
+        //    blood.a = 1f;
+        //    redBackground.color = blood;
+        //}
+        StartCoroutine(Respawn());
+    }
 
+    public void Gunshot()
+    {
+        resetMoney = false;
+        soundManager.PlayShoot();
+        if (colorGrading != null)
+        {
+            colorGrading.postExposure.value = 5f;
+            DOTween.Sequence()
+                .Append(DOTween.To(() => colorGrading.postExposure.value, x => colorGrading.postExposure.value = x, -3.5f, 0.3f));
+        }
+        Camera.main.transform.DOShakePosition(0.3f, 0.5f, 20);
+
+        if (playerController != null) playerController.enabled = false;
+        if (colorGrading != null)
+        {
+            colorGrading.colorFilter.value = new Color(20f, 0f, 0f);
+        }
         if (redBackground != null)
         {
             Color blood = redBackground.color;
             blood.a = 1f;
             redBackground.color = blood;
         }
+        StartCoroutine(Respawn());
+    }
 
-        if (gameOverText != null)
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(0.4f);
+        float t = 0;
+        soundManager.PlayScream();
+        while (t < 1f)
         {
-            gameOverText.gameObject.SetActive(true);
+            t += Time.deltaTime;
+            colorGrading.postExposure.value = Mathf.Lerp(-3.5f, -15f, t / 1f);
+            yield return null;
         }
+
+        if (respawnPoint != null && playerController != null)
+        {
+            playerController.transform.position = respawnPoint.position;
+            if (resetMoney == false) playerController.transform.rotation = respawnPoint.rotation;
+            if (resetMoney == true) playerController.transform.rotation = respawnPoint.rotation * Quaternion.Euler(0, 180, 0);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        colorGrading.colorFilter.value = Color.white;
+        t = 0;
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            colorGrading.postExposure.value = Mathf.Lerp(-15f, 0f, t / 1f);
+            yield return null;
+        }
+        if (redBackground != null) redBackground.color = new Color(1, 0, 0, 0);
+        if (playerController != null) playerController.enabled = true;
+        if (resetMoney == true) 
+        {
+            totalCoins = 2000;
+            soundManager.PlayCoin(); ;
+        } 
+        UpdateCoinLabel();
     }
 
     public void UpdateEventLabel(string eventText)
