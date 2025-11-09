@@ -7,6 +7,7 @@ public class OpenLeftElevator : MonoBehaviour
 {
     [SerializeField] private KeyCode triggerKey = KeyCode.P;
     public List<GameObject> doorPrefabs;
+    public GameObject roulettePrefab;
     public GameObject wall;
     public Renderer lightTube;
     public int materialIndex = 0;
@@ -33,6 +34,10 @@ public class OpenLeftElevator : MonoBehaviour
     public void OpenLeft()
     {
         soundManager.PlayOpenDoor();
+
+        if (roulettePrefab != null)
+            roulettePrefab.SetActive(true);
+
         if (doorPrefabs != null && doorPrefabs.Count >= 2)
             {
             doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);

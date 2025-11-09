@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.31954432, g: 0.47079936, b: 0.6226415, a: 1}
+  m_FogColor: {r: 0.32556063, g: 0.45523313, b: 0.5849056, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 225
+  m_LinearFogStart: 20
+  m_LinearFogEnd: 400
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -256,6 +256,7 @@ MonoBehaviour:
   doorPrefabs:
   - {fileID: 0}
   - {fileID: 0}
+  spotLight: {fileID: 0}
   hasTriggered: 0
   soundManager: {fileID: 0}
 --- !u!114 &543445820
@@ -274,6 +275,7 @@ MonoBehaviour:
   doorPrefabs:
   - {fileID: 0}
   - {fileID: 0}
+  roulettePrefab: {fileID: 0}
   wall: {fileID: 0}
   lightTube: {fileID: 0}
   materialIndex: 2
@@ -614,14 +616,14 @@ RectTransform:
   m_GameObject: {fileID: 1197539238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 13.6, z: 8}
+  m_LocalScale: {x: 12, y: 20.400002, z: 12}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3555865091446661465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1092}
+  m_AnchoredPosition: {x: 0, y: 957}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1197539240
@@ -637,9 +639,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 1197539241}
-  startPosition: {x: 0, y: -1092}
-  endPosition: {x: 0, y: 627}
-  duration: 30
+  startPosition: {x: 0, y: -1611}
+  endPosition: {x: 0, y: 957}
+  duration: 35
 --- !u!114 &1197539241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,7 +1276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -155}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1990982976
@@ -1392,7 +1394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2057390354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,10 +1782,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

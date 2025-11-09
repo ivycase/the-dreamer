@@ -8,6 +8,7 @@ public class OpenRightElevator : MonoBehaviour
     public GameObject gunPrefab;
     public Light targetLight;
     public List<GameObject> doorPrefabs;
+    public Light spotLight;
 
     private float doorOpenDistance = 1.2f;
     private float doorOpenDuration = 1.6f;
@@ -39,5 +40,7 @@ public class OpenRightElevator : MonoBehaviour
              doorPrefabs[0].transform.DOLocalMoveX(doorPrefabs[0].transform.localPosition.x + doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
              doorPrefabs[1].transform.DOLocalMoveX(doorPrefabs[1].transform.localPosition.x - doorOpenDistance, doorOpenDuration).SetEase(Ease.OutBounce);
          }
+
+         if (spotLight != null) spotLight.enabled = true;
     }
 }
